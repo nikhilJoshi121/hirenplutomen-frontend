@@ -30,16 +30,21 @@
             </tbody>
           </table>
         </div>
+        <div class="pt-4" v-if="listCategory.length > 0">
+          <childComponent :dataTree="listCategory"></childComponent>
+        </div>
       </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+import childComponent from './CategoryTree';
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  props: ['dataTree'],
+  components:{
+    childComponent
   },
   data() {
       return {
